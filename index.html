@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>IFrame Content</title>
 </head>
+
 <body>
     <button onclick="sendMessageToParent()">Send Message to Parent</button>
+    <p id="paragraph"></p>
 
     <script>
         function sendMessageToParent() {
-            // Send message to parent window
-            window.parent.postMessage('Hello Parent!', '*');
+            const P = document.getElementById("paragraph");
+            P.innerHTML = JSON.stringify(window.parent.document);
+            var myCustomData = { Data: 'Test-Data' };
+            var event = new CustomEvent('message', { detail: myCustomData });
+            window.parent.document.dispatchEvent(event);
         }
     </script>
 </body>
+
 </html>
