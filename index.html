@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IFrame Content</title>
+</head>
+<body>
+    <button onclick="sendMessageToParent()">Send Message to Parent</button>
+
+    <script>
+        function sendMessageToParent() {
+            // Send message to parent window
+            window.parent.postMessage('Hello Parent!', '*');
+        }
+    </script>
+</body>
+</html>
